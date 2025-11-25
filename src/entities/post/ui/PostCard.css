@@ -1,0 +1,18 @@
+.postCard {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: start;
+    background: #fff;
+    color: #000;
+    width: fit-content;
+}
+
+.postCardHeader {
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.postCardBody {
+    padding: 20px;    
+}
