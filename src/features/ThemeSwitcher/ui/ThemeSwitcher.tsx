@@ -3,9 +3,9 @@ import { useTheme } from "../../../shared/lib/theme/ThemeContext";
 
 export function ThemeSwitcher(){
 
-    const {theme, tougleTheme} = useTheme(); 
+    const {theme, toggleTheme} = useTheme(); 
 
     return (
-        <Button onClick={tougleTheme}>{theme === 'light' ? '🌙' : '☀️'}</Button>
+        <Button onClick={toggleTheme}>{theme === 'light' ? '🌙' : '☀️'}</Button>
     )
 }
