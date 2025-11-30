@@ -7,7 +7,7 @@ import { ThemeProvider } from './shared/lib/theme/ThemeContext.js'
 createRoot(document.getElementById('root')!).render(
 
   <StrictMode>
-    <ThemeProvider theme='light'>
+    <ThemeProvider>
       <App />
     </ThemeProvider>
   </StrictMode>,

@@ -2,7 +2,7 @@ import './PostCard.css'
 import type { Post } from '../Post'
 import { useTheme } from '../../../shared/lib/theme/ThemeContext'
 
-type Props = {
+interface Props {
     post: Post
 }
 

@@ -22,16 +22,17 @@ body{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 0;
 }
 
 
 body[data-theme='light'] {
   background: white;
-  color: black;
+  color: #242424;
 }
 
 body[data-theme='dark'] {
-  background: black;
+  background: #242424;
   color: white;
 }
 

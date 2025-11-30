@@ -1,3 +1,11 @@
 .button{
     padding: 10px 20px;
 }
+
+.closeButton{
+    background: 0;
+}
+
+.themeSwitcher{
+    background: red;
+}
