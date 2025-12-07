@@ -13,6 +13,23 @@
 
 .myModal{   
     background: #fff;   
-    color: #000;
-    padding: 30px;
+    color: #000;    
+    border-radius: 10px;
+}
+
+.modalHeader{
+    padding: 10px;
+    background: eae1e1; 
+    border-bottom: 1px solid #ccc;
+}
+
+.modalBody{
+    padding: 10px;    
+    border-bottom: 1px solid #ccc;
+}
+
+
+.modalFooter{
+    padding: 10px;
+    background: eae1e1;     
 }

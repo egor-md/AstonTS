@@ -2,18 +2,18 @@ import './MainLayout.css'
 import { Footer } from '../../widgets/LayoutFooter/Footer'
 import { Header } from '../../widgets/LayoutHeader/Header'
 import { PostList } from '../../widgets/PostList/PostList'
-import type { Post } from '../../entities/post/Post'
+import { withLoading } from '../lib/hoc/WithLoading'
 
-type Props = {
-    posts : Post[]
-}
+const url = 'https://jsonplaceholder.typicode.com/posts';
 
-export function MainLayout({posts} : Props) {
+const ListWithLoading = withLoading(PostList)
+
+export function MainLayout() {
     return (
-        <>            
+        <>
             <Header />
-            <PostList posts={posts} />
+            <ListWithLoading url={url} />
             <Footer />
         </>
-    )
+    );
 }

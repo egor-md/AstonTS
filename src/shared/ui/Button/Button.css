@@ -1,5 +1,8 @@
 .button{
     padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: fit-content;
 }
 
 .closeButton{
@@ -8,4 +11,15 @@
 
 .themeSwitcher{
     background: red;
+}
+
+.showCommentsButton {
+    padding: 4px 11px;
+    border: 1px solid #cdcdcd;    
+    background: #fff;
+    margin: 10px 10px 10px auto;        
+}
+
+.showCommentsButton:hover {
+    background: #cdcdcd;
 }

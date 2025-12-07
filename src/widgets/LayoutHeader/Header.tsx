@@ -11,19 +11,25 @@ export function Header() {
 
     const [open, setOpen] = useState(false);
 
-    const openModal = () => setOpen(true); 
-    const closeModal = () => setOpen(false); 
+    const openModal = () => setOpen(true);
+    const closeModal = () => setOpen(false);
 
     return (
-        <header>            
+        <header>
             <h3>Header</h3>
             <ThemeSwitcher />
-            <Button onClick={openModal}>О проекте</Button>
-            <Modal isOpen={open} onClose={closeModal}>
-                <h2>О проекте</h2>
-                <p>homework-2</p>
-                <Button className={'closeButton'} onClick={closeModal}>Закрыть</Button>
-            </Modal>
+            <Button className={'themeSwitcher'} onClick={openModal}>О проекте</Button>
+            <Modal.Root isOpen={open} onClose={closeModal}>
+                <Modal.Header>
+                    <h2>О проекте</h2>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>homework-2</p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button className={'closeButton'} onClick={closeModal}>Закрыть</Button>
+                </Modal.Footer>
+            </Modal.Root>
         </header>
     )
 }
