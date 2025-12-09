@@ -1,0 +1,9 @@
+.userTabs {
+  display: flex;
+  gap: 20px;
+}
+
+.userTabs a.active {
+  font-weight: bold;
+  border-bottom: 2px solid blue;
+}

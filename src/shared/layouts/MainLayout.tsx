@@ -1,18 +1,21 @@
 import './MainLayout.css'
 import { Footer } from '../../widgets/LayoutFooter/Footer'
 import { Header } from '../../widgets/LayoutHeader/Header'
-import { PostList } from '../../widgets/PostList/PostList'
-import { withLoading } from '../lib/hoc/WithLoading'
+import { AppRouter } from '../../app/providers/router/AppRouter'
+import { WithLoading } from '../lib/hoc/WithLoading'
 
-const url = 'https://jsonplaceholder.typicode.com/posts';
 
-const ListWithLoading = withLoading(PostList)
+const PropsWithLoading = WithLoading(AppRouter)
 
-export function MainLayout() {
+export function MainLayout() {    
     return (
         <>
             <Header />
-            <ListWithLoading url={url} />
+
+            <main className="pageContent">
+                <PropsWithLoading  />                 
+            </main>
+
             <Footer />
         </>
     );

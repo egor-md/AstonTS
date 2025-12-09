@@ -3,9 +3,7 @@ import { ThemeSwitcher } from '../../features/ThemeSwitcher/ui/ThemeSwitcher'
 import { Modal } from '../../shared/ui/Modal/Modal'
 import './Header.css'
 import { Button } from '../../shared/ui/Button/Button'
-
-
-
+import { UserTabs } from '../UserTabs/UserTabs'
 
 export function Header() {
 
@@ -17,6 +15,7 @@ export function Header() {
     return (
         <header>
             <h3>Header</h3>
+            <UserTabs></UserTabs>
             <ThemeSwitcher />
             <Button className={'themeSwitcher'} onClick={openModal}>О проекте</Button>
             <Modal.Root isOpen={open} onClose={closeModal}>

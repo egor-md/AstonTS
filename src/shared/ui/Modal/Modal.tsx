@@ -1,4 +1,3 @@
-import { Children } from 'react';
 import './Modal.css'
 import { createPortal } from "react-dom";
 

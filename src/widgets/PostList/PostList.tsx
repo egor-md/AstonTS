@@ -4,31 +4,25 @@ import "./PostList.css";
 import type { Post } from "../../entities/post/Post";
 import { PostLengthFilter } from "../../features/ThemeSwitcher/ui/PostLengthFilter/ui/PostLengthFilter";
 import { filterByLength } from "../../features/ThemeSwitcher/ui/PostLengthFilter/lib/filterByLength";
+import { usePosts } from "../../features/PostList/model/hooks/usePosts";
 
-type Props = {
-  data: Post[];
-};
 
-export function PostList({ data }: Props) {
-  const [order, setOrder] = useState<"min" | "max">("max");
-  const [isSorted, setIsSorted] = useState(false);
+export function PostList() {
 
-  const sortedPosts = useMemo(() => {
-    return isSorted ? filterByLength(data, order) : data;
-  }, [data, order, isSorted]);
+  const Setttt = usePosts('https://jsonplaceholder.typicode.com/posts');
 
-  const toggleOrder = useCallback(() => {
-    setIsSorted(true);
-    setOrder((prev) => (prev === "min" ? "max" : "min"));
-  }, []);
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  setPosts(Setttt);
+  
+  const data = usePosts('https://jsonplaceholder.typicode.com/posts')
+
+  console.log(data);
 
   return (
-    <div className="postList">
-      <PostLengthFilter onClick={toggleOrder}>
-        Сортировать по заголовкам от {order}
-      </PostLengthFilter>
+    <div className="postList">      
 
-      {sortedPosts.map((post) => (
+      {posts.map((post) => (
         <PostCard key={post.id} post={post} />
       ))}
     </div>

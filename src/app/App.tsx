@@ -1,15 +1,19 @@
 import './App.css'
 import { MainLayout } from '../shared/layouts/MainLayout'
-import type { Post } from '../entities/post/Post';
 import { ThemeProvider } from '../shared/lib/theme/ThemeContext';
-
+import { LoadingProvider } from '../shared/contexts/LoadingContext';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
 
   return (
-    <ThemeProvider>
-      <MainLayout />
-    </ThemeProvider>
+    <BrowserRouter>
+      <LoadingProvider>
+        <ThemeProvider>
+          <MainLayout />
+        </ThemeProvider>
+      </LoadingProvider>
+    </BrowserRouter>
   )
 }
 
