@@ -1,32 +1,13 @@
-import { useState, useEffect } from "react";
-import { useLoading } from "../../../../shared/contexts/LoadingContext";
+import { useFetch } from "./useFetch";
+import type { Post } from "../../../../entities/post/Post";
 
-export function usePosts<T>(url: string) {
-  const { setLoading } = useLoading();
-  const [data, setData] = useState<T | null>(null);
 
-  useEffect(() => {
-    let cancelled = false;
+interface UsePostResult {
+  data: Post[];
+  loading: boolean;
+  error: string | null;
+}
 
-    console.log('test');    
-
-    async function load() {
-      setLoading(true);
-      try {
-        const res = await fetch(url);
-        const json = await res.json();
-        if (!cancelled) setData(json);
-      } catch (e) {
-        console.error("Fetch error:", e);
-      } finally {
-        if (!cancelled) setLoading(false);
-      }
-    }
-
-    load();
-
-    return () => { cancelled = true; };
-  }, [url, setLoading]);
-
-  return data;
+export function usePosts() : UsePostResult{
+    return useFetch('https://jsonplaceholder.typicode.com/posts')
 }

@@ -26,6 +26,14 @@ body{
 }
 
 
+.loader {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 body[data-theme='light'] {
   background: white;
   color: #242424;

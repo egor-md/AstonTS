@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
+import "./UserTabs.css"
 
 export function UserTabs() {    
 
     return (
         <nav className="userTabs">
-            <NavLink to={`/posts`}>Posts</NavLink>
-            <NavLink to={`/posts111`}>Posts111</NavLink>
-            <NavLink to={`/contacts`}>Contacts</NavLink>
+            <NavLink to={`/posts`}>Посты</NavLink>
+            <NavLink to={`/users`}>Пользователи</NavLink>
         </nav>
     );
 }
