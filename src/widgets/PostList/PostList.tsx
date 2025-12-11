@@ -1,36 +1,33 @@
 import { PostCard } from "../../entities/post/ui/PostCard";
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo } from "react";
 import "./PostList.css";
 import type { Post } from "../../entities/post/Post";
 import { PostLengthFilter } from "../../features/ThemeSwitcher/ui/PostLengthFilter/ui/PostLengthFilter";
 import { filterByLength } from "../../features/ThemeSwitcher/ui/PostLengthFilter/lib/filterByLength";
 
 type Props = {
-  data: Post[];
+    data: Post[];
 };
 
 export function PostList({ data }: Props) {
-  const [order, setOrder] = useState<"min" | "max">("max");
-  const [isSorted, setIsSorted] = useState(false);
+    const [maxLength, setMaxLength] = useState<number>(0);
 
-  const sortedPosts = useMemo(() => {
-    return isSorted ? filterByLength(data, order) : data;
-  }, [data, order, isSorted]);
+    const filteredPosts = useMemo(() => {
+        if (maxLength <= 0) return data;
+        return filterByLength(data, maxLength);
+    }, [data, maxLength]);
 
-  const toggleOrder = useCallback(() => {
-    setIsSorted(true);
-    setOrder((prev) => (prev === "min" ? "max" : "min"));
-  }, []);
+    return (
+        <div className="postList">
 
-  return (
-    <div className="postList">
-      <PostLengthFilter onClick={toggleOrder}>
-        Сортировать по заголовкам от {order}
-      </PostLengthFilter>
+            <PostLengthFilter
+                value={maxLength}
+                onChange={setMaxLength}
+            />
 
-      {sortedPosts.map((post) => (
-        <PostCard key={post.id} post={post} />
-      ))}
-    </div>
-  );
+            {filteredPosts.map((post) => (
+                <PostCard key={post.id} post={post} />
+            ))}
+        </div>
+    );
 }

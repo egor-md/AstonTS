@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import './WithLoading.css'
 import type { Post } from "../../../entities/post/Post";
 
-export function withLoading(Wrapped: React.ComponentType<any>) {
+export function WithLoading(Wrapped: React.ComponentType<any>) {
   return function WithLoadingComponent(props: any) {
     const [data, setData] = useState<Post[]>([]);
     const [loading, setLoading] = useState(true);

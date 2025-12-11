@@ -1,13 +1,16 @@
 interface Props {
-    children: React.ReactNode;
-    onClick: () => void
+  value: number;
+  onChange: (value: number) => void;
 }
 
-
-export function PostLengthFilter({ children, onClick }: Props) {
-    return (
-        <button onClick={onClick} >
-            {children}
-        </button>
-    );
+export function PostLengthFilter({ value, onChange }: Props) {
+  return (
+    <input
+      type="number"
+      style={{ width: '100px', margin: '0 auto' }}
+      value={value}
+      onChange={(e) => onChange(Number(e.target.value))}
+      placeholder="Введите длину заголовка"
+    />
+  );
 }
