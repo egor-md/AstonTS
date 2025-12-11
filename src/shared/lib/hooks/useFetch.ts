@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import type { Post } from "../../../../entities/post/Post";
 
 export interface UseFetchResult<T> {
   data: T | null;
@@ -19,26 +18,7 @@ export function useFetch<T = unknown>(url: string): UseFetchResult<T> {
     fetch(url)
       .then(res => res.json())
       .then(async json => {
-        if (canceled) return;
-
-        if (url === "https://jsonplaceholder.typicode.com/posts") {
-          const posts = json as Post[];
-
-          const postsWithComments = await Promise.all(
-            posts.map(async post => {
-              const comments = await fetch(
-                `https://jsonplaceholder.typicode.com/posts/${post.id}/comments`
-              ).then(res => res.json());
-
-              return { ...post, comments };
-            })
-          );
-
-          setData(postsWithComments as T);
-          return;
-        }
-
-        
+        if (canceled) return;       
         setData(json as T);
       })
       .catch(e => {

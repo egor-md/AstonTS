@@ -1,5 +1,5 @@
-import { useFetch } from "./useFetch";
-import type { User } from "../../../../entities/user/User";
+import { useFetch } from "../../../shared/lib/hooks/useFetch";
+import type { User } from "../User";
 
 export function useUser(id : string | undefined){
     return useFetch<User>(`https://jsonplaceholder.typicode.com/users/${id}`)

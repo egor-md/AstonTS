@@ -1,5 +1,5 @@
 import "./UsersPage.css";
-import { useUsers } from "../../features/PostList/model/hooks/useUsers";
+import { useUsers } from "../../entities/user/hooks/useUsers";
 import { Link } from "react-router-dom";
 
 export function UsersPage() {

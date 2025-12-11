@@ -1,5 +1,5 @@
-import { useFetch } from "./useFetch";
-import type { Album } from "../../../../entities/album/Album";
+import { useFetch } from "../../../shared/lib/hooks/useFetch";
+import type { Album } from "../Album";
 
 
 export function useAlbum( id : string | undefined) {

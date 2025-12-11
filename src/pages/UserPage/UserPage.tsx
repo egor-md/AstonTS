@@ -1,6 +1,6 @@
 import './UserPage.css'
 import { useParams } from "react-router-dom";
-import { useUser } from '../../features/PostList/model/hooks/useUser';
+import { useUser } from '../../entities/user/hooks/useUser';
 import { Link } from 'react-router-dom';
 
 export function UserPage() {

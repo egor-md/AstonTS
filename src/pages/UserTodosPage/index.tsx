@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useToDo } from "../../features/PostList/model/hooks/useToDo";
+import { useToDo } from "../../entities/todo/hooks/useToDo";
 import './UserTodosPage.css'
 
 

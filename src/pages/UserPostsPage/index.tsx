@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useUsersPosts } from "../../features/PostList/model/hooks/useUsersPosts";
+import { useUsersPosts } from "../../entities/post/hooks/useUsersPosts";
 import { PostList } from "../../widgets/PostList/PostList";
 
 export function UserPostsPage() {

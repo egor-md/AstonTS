@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { Post } from "../../../../entities/post/Post";
+import type { Post } from "../Post";
 
 export function useUsersPosts(id: string | undefined) {
   const [data, setData] = useState<(Post & { comments: any[] })[] | null>(null);

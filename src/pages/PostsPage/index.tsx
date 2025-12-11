@@ -1,7 +1,7 @@
-import { PostCard } from "../../entities/post/ui/PostCard";
-import "./PostList.css";
+import { PostList } from "../../widgets/PostList/PostList";
+import { useFetch } from "../../shared/lib/hooks/useFetch";
 import type { Post } from "../../entities/post/Post";
-import { useFetch } from "../../features/PostList/model/hooks/useFetch";
+import "./PostsPage.css";
 
 export function PostsPage() {
   const { data, loading, error } = useFetch<Post[]>('https://jsonplaceholder.typicode.com/posts');
@@ -10,10 +10,6 @@ export function PostsPage() {
   if (error) return <div className="loader">{error}</div>;
 
   if (data) return (
-    <ul className="postList">
-      {data.map(post => (
-        <PostCard key={post.id} post={post} />
-      ))}
-    </ul>
+    <PostList posts={data}></PostList>
   );
 }

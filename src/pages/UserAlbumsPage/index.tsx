@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useAlbum } from "../../features/PostList/model/hooks/useAlbum";
+import { useAlbum } from "../../entities/album/hooks/useAlbum";
 import './UserAlbumsPage.css'
 import { Link } from "react-router-dom";
 
@@ -19,7 +19,7 @@ export function UserAlbumsPage() {
       <h1>Альбомы</h1>
       {
         data.map(album => (
-          <Link to={`/albums/${album.id}/photos`}><div className="album" key={album.id}>{album.title}</div></Link>          
+          <Link key={album.id} to={`/albums/${album.id}/photos`}><div className="album">{album.title}</div></Link>          
         )
         )
       }

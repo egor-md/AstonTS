@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { usePost } from "../../features/PostList/model/hooks/usePost";
+import { usePost } from "../../entities/post/hooks/usePost";
 import { PostCard } from "../../entities/post/ui/PostCard";
 
 export function PostPage() {
