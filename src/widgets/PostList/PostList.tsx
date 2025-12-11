@@ -3,17 +3,20 @@ import './PostList.css'
 import type { Post } from "../../entities/post/Post.ts";
 
 type Props = {
-    posts : Post[]
+    posts: Post[]
 }
 
-export function PostList({posts} : Props){
-    return(
-        <div className="postList">
-            {
-                posts.map(post => (
-                    <PostCard key={post.id} post={post}/>
-                ))
-            }            
-        </div>
+export function PostList({ posts }: Props) {
+    return (
+        <>
+            <ul className="postList">
+                {
+                    posts.map(post => (
+                        <PostCard key={post.id} post={post} />
+                    ))
+                }
+            </ul>
+        </>
+
     )
 }

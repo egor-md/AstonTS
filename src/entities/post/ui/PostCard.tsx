@@ -8,12 +8,15 @@ interface Props {
 
 export function PostCard({ post }: Props) {
 
-    const {theme} = useTheme();
+    const { theme } = useTheme();
 
     return (
-        <div className={`postCard ${theme}`}>
-            <div className="postCardHeader">{post.title}</div>
-            <div className="postCardBody">{post.body}</div>
-        </div>
+        <>
+            <li className={`postCard ${theme}`}>
+                <div className="postCardHeader">{post.title}</div>
+                <div className="postCardBody">{post.body}</div>
+            </li>
+        </>
+
     )
 }
