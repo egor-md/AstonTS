@@ -8,9 +8,9 @@ export function UserPostsPage() {
 
   const { data, loading, error } = useUsersPosts(id);
 
-  if (loading) return <div className="loader">Загрузка...</div>;
-  if (error) return <div>{error}</div>;
-  if (!data) return <div>Нет данных</div>
+  if (loading) return <p className="loader">Загрузка...</p>;
+  if (error) return <p>{error}</p>;
+  if (!data) return <p>Нет данных</p>
 
   return (
     <>

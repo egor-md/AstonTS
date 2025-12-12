@@ -10,16 +10,16 @@ export function UserAlbumsPage() {
   const { data, loading, error } = useAlbum(id);
 
 
-  if (loading) return <div className="loader">Загрузка...</div>;
-  if (error) return <div>{error}</div>;
-  if (!data) return <div>Нет данных</div>;
+  if (loading) return <p className="loader">Загрузка...</p>;
+  if (error) return <p>{error}</p>;
+  if (!data) return <p>Нет данных</p>;
 
   return (
     <div className="albumList">
       <h1>Альбомы</h1>
       {
         data.map(album => (
-          <Link key={album.id} to={`/albums/${album.id}/photos`}><div className="album">{album.title}</div></Link>          
+          <Link key={album.id} to={`/albums/${album.id}/photos`}><p className="album">{album.title}</p></Link>          
         )
         )
       }

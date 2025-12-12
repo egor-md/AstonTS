@@ -1,16 +1,16 @@
-import './UserPage.css'
 import { useParams } from "react-router-dom";
 import { useUser } from '../../entities/user/hooks/useUser';
 import { Link } from 'react-router-dom';
+import './UserPage.css'
 
 export function UserPage() {
 
     const { id } = useParams();
     const { data, loading, error } = useUser(id)
 
-    if (loading) return <div className="loader">Загрузка...</div>;
-    if (error) return <div>{error}</div>;
-    if (!data) return <div>Нет данных</div>;
+    if (loading) return <p className="loader">Загрузка...</p>;
+    if (error) return <p>{error}</p>;
+    if (!data) return <p>Нет данных</p>;
 
     return (
         <div className="UserPage">

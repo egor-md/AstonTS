@@ -6,9 +6,9 @@ export function PostPage() {
   const { id } = useParams();
   const { data, loading, error } = usePost(id);
 
-  if (loading) return <div className="loader">Загрузка...</div>;
-  if (error) return <div>{error}</div>;
-  if (!data) return <div>Нет данных</div>;
+  if (loading) return <p className="loader">Загрузка...</p>;
+  if (error) return <p>{error}</p>;
+  if (!data) return <p>Нет данных</p>;
 
   return (
     <PostCard post = {data}></PostCard>
