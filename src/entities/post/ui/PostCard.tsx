@@ -3,22 +3,31 @@ import type { Post } from '../Post'
 import { useTheme } from '../../../shared/lib/theme/ThemeContext'
 import { CommentList } from '../../../widgets/CommentList/ui/CommentList'
 import { Link } from 'react-router-dom'
+import type { Comment } from '../../comment/Comment'
 
 type Props = {
     post: Post
+    comments?: Comment[]
+    isLoading: boolean
 }
 
-export function PostCard({ post }: Props) {
+export function PostCard({ post, comments, isLoading }: Props) {
+
+
+    if (!post) {
+        return <div>Загрузка поста...</div>;
+    }
 
     const { theme } = useTheme();
     return (
         <li className={`postCard ${theme}`}>
             <div className="postCardHeader">
                 <Link to={`/posts/${post.id}`}>{post.title}</Link>
-                
-                </div>
+            </div>
             <div className="postCardBody">{post.body}</div>
-            <CommentList comments={post.comments} />
+            {isLoading ? <div className='loader'>loading</div> :
+                comments ? <CommentList comments={comments} /> : <></>
+            }
         </li>
     )
 }

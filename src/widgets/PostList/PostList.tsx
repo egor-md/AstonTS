@@ -10,7 +10,7 @@ export function PostList({posts} :PostProps ) {
   return (
     <div className="postList">
       {posts.map((post) => (
-        <PostCard key={post.id} post={post} />
+        <PostCard key={post.id} post={post} isLoading={false} />
       ))}
     </div>
   );

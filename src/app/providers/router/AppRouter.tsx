@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import { PostsPage } from "../../../pages/PostsPage";
+import { PostsPage } from "../../../pages/PostsPage/PostsPage";
 import { PostPage } from "../../../pages/PostPage";
 import { UserAlbumsPage } from "../../../pages/UserAlbumsPage";
 import { AlbumPhotosPage } from "../../../pages/AlbumPhotosPage";
 import { UserTodosPage } from "../../../pages/UserTodosPage";
-import { UserPostsPage } from "../../../pages/UserPostsPage";
-import { UsersPage } from "../../../pages/UsersPage";
+import { UserPostsPage } from "../../../pages/UserPostsPage/UserPostsPage";
+import { UsersPage } from "../../../pages/UsersPage/UsersPage";
 import { UserPage } from "../../../pages/UserPage/UserPage";
 
 export function AppRouter() {

@@ -1,16 +1,23 @@
-import { useParams } from "react-router-dom";
-import { usePost } from "../../entities/post/hooks/usePost";
-import { PostCard } from "../../entities/post/ui/PostCard";
+import { useParams } from 'react-router-dom';
+import { useGetPostByIdQuery } from '../../entities/post/api/postsApi';
+import { useGetCommentsByPostIdQuery } from '../../entities/comment/api/commentsApi';
+import { postsSelectors } from '../../entities/post/model/slice/postSlice';
+import { useSelector } from 'react-redux';
+import { PostCard } from '../../entities/post/ui/PostCard';
 
 export function PostPage() {
-  const { id } = useParams();
-  const { data, loading, error } = usePost(id);
+  const { id } = useParams<{ id: string }>();
+  const postId = Number(id);
 
-  if (loading) return <p className="loader">Загрузка...</p>;
-  if (error) return <p>{error}</p>;
-  if (!data) return <p>Нет данных</p>;
+  useGetPostByIdQuery(postId);
+  
+  const { data: comments, isLoading } = useGetCommentsByPostIdQuery(postId);
+
+  const post = useSelector(state =>
+    postsSelectors.selectById(state, postId)
+  );
 
   return (
-    <PostCard post = {data}></PostCard>
+    <PostCard post={post} comments={comments} isLoading={isLoading}></PostCard>
   );
 }

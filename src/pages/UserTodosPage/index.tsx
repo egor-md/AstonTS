@@ -1,27 +1,24 @@
-import { useParams } from "react-router-dom";
-import { useToDo } from "../../entities/todo/hooks/useToDo";
+import { useParams } from 'react-router-dom';
+import { useGetTodosByUserIdQuery } from '../../entities/todo/api/todosApi';
 import './UserTodosPage.css'
 
-
 export function UserTodosPage() {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
+  const userId = Number(id);
 
-  const { data, loading, error } = useToDo(id);
+  useGetTodosByUserIdQuery(userId);
+    const { data: todos, isLoading } = useGetTodosByUserIdQuery(userId);   
 
+  if (isLoading || !todos) return <div>Загрузка...</div>;
 
-  if (loading) return <div className="loader">Загрузка...</div>;
-  if (error) return <div>{error}</div>;
-  if (!data) return <div>Нет данных</div>;
-  console.log(data);
-  
   return (
     <ul className="toDoList">
       <h1>ToDo</h1>
       {
-        data.map(todo => (
-          <li key={todo.id} className='todosLi'>
+        todos.map(todo => (
+          <li key={todo.id} className={todo.completed ? 'todosLi green' : 'todosLi red'}>
             <p>{todo.title}</p>
-            <p>Завершено: {todo.completed ? 'да'  : 'нет'}</p>
+            <p>Завершено: {todo.completed ? 'да' : 'нет'}</p>
           </li>
         )
         )
