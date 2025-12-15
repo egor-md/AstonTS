@@ -1,15 +1,19 @@
 import './PostCard.css'
 import type { Post } from '../Post'
+import { useTheme } from '../../../shared/lib/theme/ThemeContext'
 
-type Props = {
+interface Props {
     post: Post
 }
 
 export function PostCard({ post }: Props) {
+
+    const { theme } = useTheme();
+
     return (
-        <div className="postCard">
-            <div className="postCardHeader">{post.title}</div>
-            <div className="postCardBody">{post.body}</div>
-        </div>
+        <li className={`postCard ${theme}`}>
+            <p className="postCardHeader">{post.title}</p>
+            <p className="postCardBody">{post.body}</p>
+        </li>
     )
 }
