@@ -1,0 +1,9 @@
+.UserDetailPage{
+    padding: 20px;
+}
+
+
+.userInfoWrap{
+    display: flex;
+    flex-direction: column;
+}

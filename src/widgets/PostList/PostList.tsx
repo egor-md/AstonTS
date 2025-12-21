@@ -1,19 +1,17 @@
-import { PostCard } from "../../entities/post/ui/PostCard.tsx";
-import './PostList.css'
-import type { Post } from "../../entities/post/Post.ts";
+import { PostCard } from "../../entities/post/ui/PostCard";
+import "./PostList.css";
+import type { Post } from "../../entities/post/Post";
 
-type Props = {
+interface PostProps {
     posts : Post[]
 }
 
-export function PostList({posts} : Props){
-    return(
-        <div className="postList">
-            {
-                posts.map(post => (
-                    <PostCard key={post.id} post={post}/>
-                ))
-            }            
-        </div>
-    )
+export function PostList({posts} :PostProps ) {
+  return (
+    <div className="postList">
+      {posts.map((post) => (
+        <PostCard key={post.id} post={post} />
+      ))}
+    </div>
+  );
 }

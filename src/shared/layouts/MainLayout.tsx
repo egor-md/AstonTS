@@ -1,19 +1,18 @@
 import './MainLayout.css'
 import { Footer } from '../../widgets/LayoutFooter/Footer'
 import { Header } from '../../widgets/LayoutHeader/Header'
-import { PostList } from '../../widgets/PostList/PostList'
-import type { Post } from '../../entities/post/Post'
+import { AppRouter } from '../../app/providers/router/AppRouter'
 
-type Props = {
-    posts : Post[]
-}
-
-export function MainLayout({posts} : Props) {
+export function MainLayout() {
     return (
-        <>            
+        <>
             <Header />
-            <PostList posts={posts} />
+
+            <main className="pageContent">
+                <AppRouter />
+            </main>
+
             <Footer />
         </>
-    )
+    );
 }

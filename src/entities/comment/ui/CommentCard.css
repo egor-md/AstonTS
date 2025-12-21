@@ -1,0 +1,12 @@
+.commentCard{
+    margin-bottom: 20px;
+    border-bottom: 1px solid;
+}
+
+.commentCardHeader {
+    padding: 10px 20px;
+}
+
+.commentCardBody {
+    padding: 10px 20px;
+}

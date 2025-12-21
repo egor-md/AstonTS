@@ -1,0 +1,12 @@
+.album{
+    padding: 20px;
+}
+
+
+.albumList {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5px;
+}
