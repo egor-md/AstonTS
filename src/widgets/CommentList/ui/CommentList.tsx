@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { CommentCard } from "../../../entities/comment/ui/CommentCard";
-import type { Comment } from "../../../entities/comment/Comment";
+import type { Comment } from "../../../entities/comment/model/types";
 import { Button } from "../../../shared/ui/Button/Button";
 import './CommentList.css'
 

@@ -11,17 +11,15 @@ import { UserPage } from "../../../pages/UserPage/UserPage";
 export function AppRouter() {
     return (
         <Routes>
-
+            <Route path="/" element={<PostsPage />} />
             <Route path="/posts" element={<PostsPage />} />
-            <Route path="/users" element={<UsersPage />} />
-            
+            <Route path="/users" element={<UsersPage />} />            
             <Route path="/posts/:id" element={<PostPage />} />
             <Route path="/users/:id" element={<UserPage />} />
             <Route path="/users/:id/albums" element={<UserAlbumsPage />} />
             <Route path="/albums/:id/photos" element={<AlbumPhotosPage />} />
             <Route path="/users/:id/todos" element={<UserTodosPage />} />
             <Route path="/users/:id/posts" element={<UserPostsPage />} />
-
         </Routes>
     );
 }

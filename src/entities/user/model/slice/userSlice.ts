@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { User } from '../../User';
+import type { User } from '../types';
 import type { RootState } from '../../../../app/providers/store';
 import { usersApi } from '../../api/usersApi';
 

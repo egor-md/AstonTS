@@ -1,6 +1,6 @@
 import { PostCard } from "../../entities/post/ui/PostCard";
 import "./PostList.css";
-import type { Post } from "../../entities/post/Post";
+import type { Post } from "../../entities/post/model/types";
 
 interface PostProps {
     posts : Post[]

@@ -1,4 +1,4 @@
-import type { Post } from "../../../../../entities/post/Post";
+import type { Post } from "../../../../../entities/post/model/types";
 
 export function filterByLength(posts: Post[], lengthValue: 'min' | 'max'): Post[] {
     return [...posts].sort((a, b) => {

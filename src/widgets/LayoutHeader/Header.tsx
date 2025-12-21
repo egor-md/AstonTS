@@ -18,7 +18,7 @@ export function Header() {
             <UserTabs></UserTabs>
             <ThemeSwitcher />
             <Button className={'themeSwitcher'} onClick={openModal}>О проекте</Button>
-            <Modal.Root isOpen={open} onClose={closeModal}>
+            <Modal isOpen={open} onClose={closeModal}>
                 <Modal.Header>
                     <h2>О проекте</h2>
                 </Modal.Header>
@@ -28,7 +28,7 @@ export function Header() {
                 <Modal.Footer>
                     <Button className={'closeButton'} onClick={closeModal}>Закрыть</Button>
                 </Modal.Footer>
-            </Modal.Root>
+            </Modal>
         </header>
     )
 }

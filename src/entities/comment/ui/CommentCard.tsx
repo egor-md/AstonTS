@@ -1,5 +1,5 @@
 import "./CommentCard.css";
-import type { Comment } from "../Comment";
+import type { Comment } from "../model/types";
 
 type Props = {
     comment: Comment;   

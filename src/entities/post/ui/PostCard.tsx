@@ -1,9 +1,9 @@
 import './PostCard.css'
-import type { Post } from '../Post'
+import type { Post } from '../model/types'
 import { useTheme } from '../../../shared/lib/theme/ThemeContext'
 import { CommentList } from '../../../widgets/CommentList/ui/CommentList'
 import { Link } from 'react-router-dom'
-import type { Comment } from '../../comment/Comment'
+import type { Comment } from '../../comment/model/types'
 
 type Props = {
     post: Post

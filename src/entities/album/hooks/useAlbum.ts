@@ -1,5 +1,5 @@
 import { useFetch } from "../../../shared/lib/hooks/useFetch";
-import type { Album } from "../Album";
+import type { Album } from "../model/types";
 
 
 export function useAlbum( id : string | undefined) {

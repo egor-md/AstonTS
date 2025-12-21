@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { Post } from '../../Post';
+import type { Post } from '../types';
 import type { RootState } from '../../../../app/providers/store';
 import { postsApi } from '../../api/postsApi';
 
