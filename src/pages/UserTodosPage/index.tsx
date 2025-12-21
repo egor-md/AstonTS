@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useGetTodosByUserIdQuery } from '../../entities/todo/api/todosApi';
-import './UserTodosPage.css'
+import { ItemList } from '../../shared/ui/ItemList/ItemList';
+import type { Todo } from '../../entities/todo/model/types';
+import { ToDoCard } from '../../entities/todo/ui/ToDoCard';
 
 export function UserTodosPage() {
   const { id } = useParams<{ id: string }>();
@@ -12,17 +14,10 @@ export function UserTodosPage() {
   if (isLoading || !todos) return <div>Загрузка...</div>;
 
   return (
-    <ul className="toDoList">
-      <h1>ToDo</h1>
-      {
-        todos.map(todo => (
-          <li key={todo.id} className={todo.completed ? 'todosLi green' : 'todosLi red'}>
-            <p>{todo.title}</p>
-            <p>Завершено: {todo.completed ? 'да' : 'нет'}</p>
-          </li>
-        )
-        )
-      }
-    </ul>
+    <ItemList<Todo>
+      items={todos}
+      keyExtractor={(todo) => todo.id}
+      renderItem={(todo) => <ToDoCard todo={todo} />}
+    />
   );
 }

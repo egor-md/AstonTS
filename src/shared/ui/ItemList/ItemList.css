@@ -1,0 +1,23 @@
+.usersList {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.albumListNew {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.photosListNew {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.photosListNew li{
+    height: 150px;
+}

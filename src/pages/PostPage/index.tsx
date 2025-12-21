@@ -13,11 +13,11 @@ export function PostPage() {
   
   const { data: comments, isLoading } = useGetCommentsByPostIdQuery(postId);
 
-  const post = useSelector(state =>
+  const posts = useSelector(state =>
     postsSelectors.selectById(state, postId)
   );
 
   return (
-    <PostCard post={post} comments={comments} isLoading={isLoading}></PostCard>
+    <PostCard post={posts} comments={comments} isLoading={isLoading}/>
   );
 }

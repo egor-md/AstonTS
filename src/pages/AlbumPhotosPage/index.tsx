@@ -2,6 +2,9 @@ import { useParams } from "react-router-dom";
 import { useAlbumPhotos } from "../../entities/photo/hooks/useAlbumPhotos"
 import { useMemo } from "react";
 import './AlbumPhotosPage.css'
+import type { Photo } from "../../entities/photo/model/types";
+import { PhotoItem } from "../../entities/photo/ui/PhotoItem";
+import { ItemList } from "../../shared/ui/ItemList/ItemList";
 
 
 export function AlbumPhotosPage() {
@@ -29,13 +32,11 @@ export function AlbumPhotosPage() {
   if (!data) return <p>Нет данных</p>;
 
   return (
-    <div className="photosList">
-      {
-        photos.map(photo => (          
-          <img key={photo.id} src={photo.thumbnailUrl} alt={photo.title} />
-        )
-        )
-      }
-    </div>
+    <ItemList<Photo>
+      items={photos}
+      className="photosListNew"
+      keyExtractor={(photo) => photo.id}
+      renderItem={(photo) => <PhotoItem photo={photo}/>}
+    />
   );
 }
