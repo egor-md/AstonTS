@@ -1,0 +1,13 @@
+.todosLi {
+    margin: 67px 0;    
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+.red {
+    border-color: red;
+}
+
+.green {
+    border-color: green;
+}

@@ -1,0 +1,16 @@
+.UsersList{
+    padding : 20px;
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+}
+
+.userI{
+    padding: 20px;
+}
+
+
+li.userI p {
+    cursor: pointer;
+}
