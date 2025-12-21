@@ -9,6 +9,7 @@ export function PostsPage() {
 
   if (isLoading) return <div>Загрузка...</div>;
   if (error) return <div>Ошибка загрузки</div>;
+  
   return (
     <PostList posts={posts}></PostList>
   );

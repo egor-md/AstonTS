@@ -7,7 +7,7 @@ export function UserTodosPage() {
   const userId = Number(id);
 
   useGetTodosByUserIdQuery(userId);
-    const { data: todos, isLoading } = useGetTodosByUserIdQuery(userId);   
+  const { data: todos, isLoading } = useGetTodosByUserIdQuery(userId);
 
   if (isLoading || !todos) return <div>Загрузка...</div>;
 

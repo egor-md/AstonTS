@@ -5,10 +5,7 @@ import type { RootState } from '../../../../app/providers/store';
 import { postsApi } from '../../api/postsApi';
 
 
-export const postsAdapter = createEntityAdapter<Post>({
-  selectId: post => post.id,
-  sortComparer: (a, b) => a.id - b.id,
-});
+export const postsAdapter = createEntityAdapter<Post>({});
 
 interface PostSliceState {
   selectedPostId: number | null;

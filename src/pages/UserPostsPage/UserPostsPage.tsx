@@ -1,7 +1,5 @@
 import { useParams } from 'react-router-dom';
 import { useGetPostsByUserIdQuery } from '../../entities/post/api/postsApi';
-import { postsSelectors } from '../../entities/post/model/slice/postSlice';
-import { useSelector } from 'react-redux';
 import { PostList } from '../../widgets/PostList/PostList';
 import './UserPostsPage'
 
