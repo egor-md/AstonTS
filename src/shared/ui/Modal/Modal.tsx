@@ -1,38 +1,46 @@
-import { Children } from 'react';
-import './Modal.css'
-import { createPortal } from "react-dom";
+import { createPortal } from 'react-dom';
+import './Modal.css';
 
 interface ModalProps {
-    isOpen: boolean,
-    onClose: () => void,
-    children: React.ReactNode
+  isOpen: boolean;
+  onClose: () => void;
+  children: React.ReactNode;
 }
 
-interface ModalConponentProps {
-    children: React.ReactNode
+interface ModalComponentProps {
+  children: React.ReactNode;
 }
 
-export const Modal = {
+export function Modal({ isOpen, onClose, children }: ModalProps) {
+  if (!isOpen) return null;
 
-    Root: ({ isOpen, onClose, children }: ModalProps) => {
-        if (!isOpen) return null;
+  const modalRoot = document.getElementById('modal-root');
+  if (!modalRoot) return null;
 
-        const modalRoot = document.getElementById("modal-root") as HTMLElement;
+  const handleBackgroundClick = (
+    e: React.MouseEvent<HTMLDivElement>
+  ) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
 
-        const handleBackgroundClick = (e: React.MouseEvent<HTMLDivElement>) => {
-            if (e.target === e.currentTarget) onClose();
-        };
+  return createPortal(
+    <div className="wrap" onClick={handleBackgroundClick}>
+      <div className="myModal">{children}</div>
+    </div>,
+    modalRoot
+  );  
+}
 
-        return createPortal(
-            <div className="wrap" onClick={handleBackgroundClick}>
-                <div className="myModal">
-                    {children}
-                </div>
-            </div>,
-            modalRoot
-        );
-    },
-    Header: ({ children }: ModalConponentProps) => <div className="modalHeader">{children}</div>,
-    Body: ({ children }: ModalConponentProps) => <div className="modalBody">{children}</div>,
-    Footer: ({ children }: ModalConponentProps) => <div className="modalFooter">{children}</div>,
-};
+Modal.Header = ({ children }: ModalComponentProps) => (
+  <div className="modalHeader">{children}</div>
+);
+
+Modal.Body = ({ children }: ModalComponentProps) => (
+  <div className="modalBody">{children}</div>
+);
+
+Modal.Footer = ({ children }: ModalComponentProps) => (
+  <div className="modalFooter">{children}</div>
+);
