@@ -13,9 +13,9 @@ export const postsApi = createApi({
       providesTags: result =>
         result
           ? [
-              ...result.map(post => ({ type: 'Posts' as const, id: post.id })),
-              { type: 'Posts', id: 'LIST' },
-            ]
+            ...result.map(post => ({ type: 'Posts' as const, id: post.id })),
+            { type: 'Posts', id: 'LIST' },
+          ]
           : [{ type: 'Posts', id: 'LIST' }],
     }),
 
@@ -28,6 +28,15 @@ export const postsApi = createApi({
       query: id => `posts/${id}`,
       providesTags: (_res, _err, id) => [{ type: 'Posts', id }],
     }),
+    
+    invalidatePosts: builder.mutation<void, void>({
+      query: () => ({
+        url: 'posts',
+        method: 'POST',
+        body: {}, 
+      }),
+      invalidatesTags: [{ type: 'Posts', id: 'LIST' }],
+    }),
   }),
 });
 
@@ -35,4 +44,5 @@ export const {
   useGetPostsQuery,
   useGetPostsByUserIdQuery,
   useGetPostByIdQuery,
+  useInvalidatePostsMutation,
 } = postsApi;
