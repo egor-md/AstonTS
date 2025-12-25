@@ -1,11 +1,18 @@
 .postCard {
     border: 1px solid #ccc;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin: 20px 0;
     text-align: start;
     background: #fff;
     color: #000;
-    width: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.postCard.dark {
+    background: black;
+    color: white;
 }
 
 .postCardHeader {

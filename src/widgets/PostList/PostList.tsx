@@ -1,19 +1,24 @@
-import { PostCard } from "../../entities/post/ui/PostCard.tsx";
-import './PostList.css'
-import type { Post } from "../../entities/post/Post.ts";
+import { PostCard } from "../../entities/post/ui/PostCard";
+import "./PostList.css";
+import type { Post } from "../../entities/post/model/types";
+import { useInvalidatePostsMutation } from "../../entities/post/api/postsApi";
 
-type Props = {
-    posts : Post[]
+interface PostProps {
+  posts: Post[]
 }
 
-export function PostList({posts} : Props){
-    return(
-        <div className="postList">
-            {
-                posts.map(post => (
-                    <PostCard key={post.id} post={post}/>
-                ))
-            }            
-        </div>
-    )
+export function PostList({ posts }: PostProps) {
+
+  const [invalidatePosts, { isLoading }] = useInvalidatePostsMutation();
+  
+  return (
+    <div className="postList">
+      <button onClick={() => invalidatePosts()} disabled={isLoading}>
+        Инвалидировать посты
+      </button>
+      {posts.map((post) => (
+        <PostCard key={post.id} post={post} isLoading={false} />
+      ))}
+    </div>
+  );
 }
