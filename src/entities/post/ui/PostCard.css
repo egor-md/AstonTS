@@ -5,7 +5,14 @@
     text-align: start;
     background: #fff;
     color: #000;
-    width: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.postCard.dark {
+    background: black;
+    color: white;
 }
 
 .postCardHeader {
